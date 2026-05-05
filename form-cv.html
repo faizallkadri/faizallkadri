@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Buat CV | Faizal Kadri</title>
+  <meta name="description" content="Form awal pembuatan CV untuk mengumpulkan informasi karier, pengalaman, skill, dan target posisi.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Kembali ke halaman utama">
+      <span class="brand-mark">FK</span>
+      <span>Faizal Kadri</span>
+    </a>
+    <nav class="nav" aria-label="Navigasi form">
+      <a href="index.html#services">Layanan</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="form-page">
+    <section class="form-hero">
+      <p class="eyebrow">Form Buat CV</p>
+      <h1>Bantu saya memahami profilmu sebelum CV dibuat.</h1>
+      <p>Isi informasi dasar berikut agar CV bisa disusun lebih rapi, relevan dengan target posisi, dan mudah dipahami recruiter.</p>
+    </section>
+
+    <form class="cv-form" action="mailto:faizalkadri01@gmail.com" method="post" enctype="text/plain">
+      <div class="form-section">
+        <h2>Data Diri</h2>
+        <label>
+          Nama lengkap
+          <input type="text" name="Nama lengkap" required>
+        </label>
+        <label>
+          Email aktif
+          <input type="email" name="Email" required>
+        </label>
+        <label>
+          Nomor WhatsApp
+          <input type="tel" name="WhatsApp" required>
+        </label>
+        <label>
+          Domisili
+          <input type="text" name="Domisili">
+        </label>
+      </div>
+
+      <div class="form-section">
+        <h2>Tujuan Karier</h2>
+        <label>
+          Posisi yang dituju
+          <input type="text" name="Posisi yang dituju" placeholder="Contoh: HR Staff, Admin, Sales Executive">
+        </label>
+        <label>
+          Industri atau perusahaan target
+          <input type="text" name="Industri target" placeholder="Contoh: Logistik, F&B, Startup, Manufaktur">
+        </label>
+        <label>
+          Ringkasan profil singkat
+          <textarea name="Ringkasan profil" rows="5" placeholder="Ceritakan latar belakang, kekuatan utama, dan tujuan kariermu."></textarea>
+        </label>
+      </div>
+
+      <div class="form-section">
+        <h2>Pengalaman & Skill</h2>
+        <label>
+          Pengalaman kerja atau organisasi
+          <textarea name="Pengalaman" rows="6" placeholder="Tuliskan nama perusahaan/organisasi, posisi, periode, dan tanggung jawab utama."></textarea>
+        </label>
+        <label>
+          Pendidikan terakhir
+          <textarea name="Pendidikan" rows="4" placeholder="Tuliskan kampus/sekolah, jurusan, tahun, dan pencapaian bila ada."></textarea>
+        </label>
+        <label>
+          Skill utama
+          <textarea name="Skill" rows="4" placeholder="Contoh: Microsoft Excel, komunikasi, recruitment, desain, customer service."></textarea>
+        </label>
+        <label>
+          Link LinkedIn atau portofolio
+          <input type="url" name="Link profil" placeholder="https://">
+        </label>
+      </div>
+
+      <div class="form-actions">
+        <a class="button secondary dark" href="index.html#services">Kembali</a>
+        <button class="button primary" type="submit">Kirim Informasi</button>
+      </div>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

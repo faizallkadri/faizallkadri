@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 860" role="img" aria-labelledby="title desc">
+  <title id="title">Placeholder foto profil</title>
+  <desc id="desc">Placeholder dengan inisial FK untuk diganti dengan foto profil asli.</desc>
+  <rect width="720" height="860" fill="#f4f0e7"/>
+  <path d="M93 755c36-139 130-212 267-212s231 73 267 212" fill="#21483f"/>
+  <circle cx="360" cy="322" r="156" fill="#d7a568"/>
+  <path d="M202 316c20-112 79-180 176-180 82 0 137 38 164 112-57-29-106-35-147-17-69 30-118 58-193 85Z" fill="#17211f"/>
+  <path d="M221 755c25-84 72-139 139-164 67 25 114 80 139 164H221Z" fill="#ffffff"/>
+  <path d="M286 604h148l-74 110-74-110Z" fill="#cf6f4f"/>
+  <text x="360" y="804" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="64" font-weight="800" fill="#17211f">FK</text>
+</svg>

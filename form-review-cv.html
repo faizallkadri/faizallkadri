@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Review CV | Faizal Kadri</title>
+  <meta name="description" content="Form awal Review CV untuk memahami target posisi, kendala CV, dan kebutuhan evaluasi sebelum proses review dilakukan.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Kembali ke halaman utama">
+      <span class="brand-mark">FK</span>
+      <span>Faizal Kadri</span>
+    </a>
+    <nav class="nav" aria-label="Navigasi form review CV">
+      <a href="index.html#services">Layanan</a>
+      <a href="index.html#insight">Insight</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="form-page">
+    <section class="form-hero">
+      <p class="eyebrow">Form Review CV</p>
+      <h1>Mulai dari CV yang lebih jelas, relevan, dan siap dibaca recruiter.</h1>
+      <p>Isi informasi berikut agar proses review CV bisa lebih tepat sasaran sesuai posisi, industri, dan kendala yang sedang kamu hadapi.</p>
+    </section>
+
+    <form class="cv-form" action="mailto:faizalkadri01@gmail.com" method="post" enctype="text/plain">
+      <div class="form-section">
+        <h2>Data Kontak</h2>
+        <label>
+          Nama lengkap
+          <input type="text" name="Nama lengkap" required>
+        </label>
+        <label>
+          Email aktif
+          <input type="email" name="Email" required>
+        </label>
+        <label>
+          Nomor WhatsApp
+          <input type="tel" name="WhatsApp" required>
+        </label>
+        <label>
+          Status saat ini
+          <input type="text" name="Status saat ini" placeholder="Contoh: Fresh graduate, karyawan, sedang mencari kerja">
+        </label>
+      </div>
+
+      <div class="form-section">
+        <h2>Target Lamaran</h2>
+        <label>
+          Posisi yang dituju
+          <input type="text" name="Posisi yang dituju" placeholder="Contoh: HR Staff, Admin, Marketing, Data Analyst">
+        </label>
+        <label>
+          Industri atau perusahaan target
+          <input type="text" name="Industri target" placeholder="Contoh: Logistik, Bank, Startup, Manufaktur">
+        </label>
+        <label>
+          Link lowongan jika ada
+          <input type="url" name="Link lowongan" placeholder="https://">
+        </label>
+        <label>
+          Link CV
+          <input type="url" name="Link CV" placeholder="Google Drive, Dropbox, atau link file CV">
+        </label>
+      </div>
+
+      <div class="form-section">
+        <h2>Kebutuhan Review</h2>
+        <label>
+          Bagian CV yang ingin direview
+          <textarea name="Bagian yang ingin direview" rows="5" placeholder="Contoh: struktur CV, ringkasan profil, pengalaman kerja, ATS, wording, desain, atau keseluruhan."></textarea>
+        </label>
+        <label>
+          Kendala utama saat melamar
+          <textarea name="Kendala utama" rows="5" placeholder="Contoh: jarang dipanggil interview, bingung menulis pengalaman, belum punya pencapaian, atau ingin pindah karier."></textarea>
+        </label>
+        <label>
+          Catatan tambahan
+          <textarea name="Catatan tambahan" rows="4" placeholder="Tuliskan informasi lain yang menurut kamu penting untuk proses review."></textarea>
+        </label>
+      </div>
+
+      <div class="form-actions">
+        <a class="button secondary dark" href="index.html#services">Kembali</a>
+        <button class="button primary" type="submit">Kirim Form Review</button>
+      </div>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
