@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hanya 10% Lamaran yang Diproses HR | Faizal Kadri</title>
+  <meta name="description" content="Data riset terbaru 2026: mengapa hanya kurang dari 10% lamaran yang benar-benar dibaca HR, dan bagaimana cara meningkatkan peluang Anda.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Stat callout cards ── */
+    .stat-callout-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin: 40px 0;
+    }
+
+    .stat-callout {
+      padding: 28px 24px;
+      border-radius: 10px;
+      border-top: 6px solid var(--teal);
+      background: var(--white);
+      box-shadow: 0 12px 32px rgba(23,33,31,0.09);
+      text-align: center;
+    }
+
+    .stat-callout:nth-child(2) { border-top-color: var(--gold); }
+    .stat-callout:nth-child(3) { border-top-color: var(--coral); }
+
+    .stat-callout strong {
+      display: block;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      color: var(--forest);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .stat-callout span {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      font-weight: 600;
+    }
+
+    /* ── Inline highlight quote ── */
+    .pull-quote {
+      margin: 36px 0;
+      padding: 28px 32px;
+      border-left: 6px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      background: linear-gradient(90deg, rgba(200,145,61,0.08), transparent);
+      font-size: clamp(1.12rem, 2vw, 1.32rem);
+      font-weight: 700;
+      color: var(--forest);
+      line-height: 1.65;
+    }
+
+    /* ── Numbered insight list ── */
+    .insight-list {
+      list-style: none;
+      padding: 0;
+      margin: 28px 0;
+      display: grid;
+      gap: 14px;
+    }
+
+    .insight-list li {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 20px 22px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--white);
+      box-shadow: 0 6px 18px rgba(23,33,31,0.06);
+    }
+
+    .insight-list li .num {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--forest);
+      color: var(--white);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 0.88rem;
+    }
+
+    .insight-list li .num.gold { background: var(--gold); color: #1c1710; }
+    .insight-list li .num.coral { background: var(--coral); }
+
+    .insight-list li div strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .insight-list li div p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.97rem;
+      line-height: 1.7;
+    }
+
+    /* ── Section divider label ── */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 44px 0 20px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: var(--mint);
+      color: var(--forest);
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .section-label::before {
+      content: "";
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    /* ── Tips checklist ── */
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 24px 0 36px;
+    }
+
+    .tip-card {
+      padding: 22px 20px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tip-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--teal);
+    }
+
+    .tip-card:nth-child(2)::before { background: var(--gold); }
+    .tip-card:nth-child(3)::before { background: var(--coral); }
+    .tip-card:nth-child(4)::before { background: var(--blue); }
+    .tip-card:nth-child(5)::before { background: var(--forest); }
+
+    .tip-card h4 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .tip-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.65;
+    }
+
+    /* ── Source footnotes ── */
+    .sources {
+      margin-top: 48px;
+      padding: 20px 24px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--soft);
+    }
+
+    .sources p {
+      margin: 0 0 8px;
+      font-size: 0.82rem !important;
+      color: var(--muted) !important;
+      line-height: 1.6 !important;
+    }
+
+    .sources strong {
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    /* ── Article hero banner ── */
+    .article-hero-banner {
+      position: relative;
+      width: 100%;
+      margin: 34px 0 42px;
+      aspect-ratio: 1.9;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .article-hero-banner img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .article-hero-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(21,48,43,0.78) 0%, rgba(21,48,43,0.2) 55%, transparent);
+    }
+
+    .article-hero-banner .banner-caption {
+      position: relative;
+      z-index: 2;
+      padding: 28px 32px;
+      color: var(--white);
+    }
+
+    .article-hero-banner .banner-caption strong {
+      display: block;
+      font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .article-hero-banner .banner-caption span {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.78);
+      font-weight: 600;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 680px) {
+      .stat-callout-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .stat-callout-grid .stat-callout:last-child {
+        grid-column: 1 / -1;
+      }
+      .tips-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="article-page">
+
+  <header class="site-header is-scrolled">
+    <a class="brand" href="index.html" aria-label="Faizal Kadri home">
+      <span class="brand-mark">FK</span>
+      <span>Faizal Kadri</span>
+    </a>
+    <nav class="nav" aria-label="Navigasi utama">
+      <a href="index.html#services">Layanan</a>
+      <a href="index.html#insight" class="active">Insight</a>
+      <a href="index.html#expertise">Expertise</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="article-detail">
+      <a class="back-link" href="index.html#insight">← Kembali ke Insight</a>
+
+      <span style="display:inline-block; margin-bottom:12px; padding:6px 14px; border-radius:999px; background:var(--mint); color:var(--forest); font-size:0.78rem; font-weight:800; text-transform:uppercase; letter-spacing:0.04em;">Recruitment · Data & Insight</span>
+
+      <h1>Ternyata Hanya Kurang dari 10% Lamaran yang Diproses HR</h1>
+
+      <p class="article-lead">
+        Dari ratusan lamaran yang masuk setiap hari, hanya sebagian kecil yang benar-benar dibaca manusia. Ini bukan sekadar kesan — ini data. Memahami mekanisme ini adalah langkah pertama untuk keluar dari tumpukan lamaran yang tidak pernah dilirik.
+      </p>
+
+      <div class="article-hero-banner">
+        <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=1400&q=80" alt="Tumpukan dokumen lamaran kerja di meja HR">
+        <div class="banner-caption">
+          <strong>Rata-rata 215–500+ lamaran masuk per satu lowongan</strong>
+          <span>Data: HiringThing 2025 · ResumeAdapter 2026</span>
+        </div>
+      </div>
+
+      <!-- ── STAT CARDS ── -->
+      <div class="stat-callout-grid">
+        <div class="stat-callout">
+          <strong>&lt;10%</strong>
+          <span>Lamaran yang lolos ke tahap review manusia dari total pelamar</span>
+        </div>
+        <div class="stat-callout">
+          <strong>62%</strong>
+          <span>Rekruter menolak kandidat tanpa membaca CV secara penuh</span>
+        </div>
+        <div class="stat-callout">
+          <strong>30–60 dtk</strong>
+          <span>Waktu rata-rata rekruter untuk pemindaian pertama sebuah CV</span>
+        </div>
+      </div>
+
+      <!-- ── BAGIAN 1: ATS ── -->
+      <p class="section-label">Penyaring Pertama: ATS</p>
+
+      <h2>97–98% Perusahaan Sudah Menggunakan ATS di 2026</h2>
+
+      <p>
+        Sebelum CV Anda menyentuh meja rekruter, hampir pasti sudah melewati sistem ATS (<em>Applicant Tracking System</em>) — perangkat lunak yang memindai, menyaring, dan merangking kandidat secara otomatis berdasarkan kecocokan kata kunci, format, dan kriteria posisi.
+      </p>
+
+      <p>
+        Artinya, mayoritas penolakan terjadi bahkan sebelum ada manusia yang membaca lamaran Anda. Hanya kandidat yang berhasil melewati filter ATS yang masuk ke antrian review rekruter — dan dari sana pun, seleksi masih berlanjut.
+      </p>
+
+      <div class="pull-quote">
+        "Dari 100–200 pelamar, rekruter seringkali hanya melirik 10–20 kandidat teratas yang muncul di hasil pencarian ATS. Sisanya? Tidak pernah terbuka."
+      </div>
+
+      <!-- ── BAGIAN 2: Human Review ── -->
+      <p class="section-label">Saat CV Sampai ke Manusia</p>
+
+      <h2>Lolos ATS Bukan Berarti Aman</h2>
+
+      <p>
+        Bahkan ketika CV sudah berhasil melewati ATS, tantangan belum berakhir. Rekruter yang menerima puluhan CV dalam satu sesi kerja membuat keputusan cepat — seringkali dalam hitungan detik.
+      </p>
+
+      <ul class="insight-list">
+        <li>
+          <span class="num">76%</span>
+          <div>
+            <strong>Aturan 30–60 Detik</strong>
+            <p>Sebanyak 76% rekruter hanya menghabiskan 30–60 detik untuk <em>first pass</em> sebuah CV. Kesan pertama terbentuk sangat cepat — struktur, keterbacaan, dan relevansi langsung dinilai sekilas.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num gold">62%</span>
+          <div>
+            <strong>Reject Tanpa Membaca Penuh</strong>
+            <p>62% rekruter mengaku menolak kandidat sebelum selesai membaca keseluruhan CV. Posisi ringkasan profil, header, dan pengalaman teratas menjadi penentu utama.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num coral">81%</span>
+          <div>
+            <strong>Perusahaan Merasa Kualitas Kandidat Belum Sesuai</strong>
+            <p>81% perusahaan — termasuk di Indonesia — merasa kualitas kandidat yang melamar belum sesuai kebutuhan. Bukan karena kekurangan pelamar, tapi karena relevansi yang rendah.</p>
+          </div>
+        </li>
+      </ul>
+
+      <!-- ── BAGIAN 3: Volume Lamaran ── -->
+      <p class="section-label">Realita Volume Lamaran</p>
+
+      <h2>Satu Lowongan, Ratusan Pelamar</h2>
+
+      <p>
+        Meningkatnya platform digital dan kemudahan melamar lewat satu klik telah mengubah lanskap rekrutmen secara drastis. Di 2026, persaingan bukan lagi soal kualifikasi semata — tapi soal kemampuan menonjol di antara kerumunan.
+      </p>
+
+      <ul class="insight-list">
+        <li>
+          <span class="num">215+</span>
+          <div>
+            <strong>Rata-rata Lamaran per Satu Lowongan</strong>
+            <p>Posisi populer bisa menerima 500+ lamaran. Posisi teknis atau managerial di perusahaan besar bahkan lebih dari itu — terutama sejak AI digunakan untuk melamar secara massal.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num gold">0,1–2%</span>
+          <div>
+            <strong>Tingkat Keberhasilan Cold Application</strong>
+            <p>Hanya 0,1% hingga 2% dari lamaran dingin (tanpa referensi atau koneksi internal) yang berujung pada penawaran kerja. Angka ini menegaskan pentingnya strategi melamar yang selektif dan tertarget.</p>
+          </div>
+        </li>
+      </ul>
+
+      <!-- ── BAGIAN 4: Mengapa Tidak Dilirik ── -->
+      <p class="section-label">Akar Masalahnya</p>
+
+      <h2>Tiga Alasan Utama Lamaran Diabaikan</h2>
+
+      <ul class="insight-list">
+        <li>
+          <span class="num">1</span>
+          <div>
+            <strong>CV Generik Tanpa Penyesuaian</strong>
+            <p>70% rekruter lebih menyukai CV yang disesuaikan (tailored) dengan posisi spesifik. CV generik yang dikirim ke puluhan perusahaan berbeda tanpa perubahan hampir pasti tenggelam dalam hasil ATS.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num gold">2</span>
+          <div>
+            <strong>Banjir Lamaran AI Massal</strong>
+            <p>Peningkatan penggunaan AI untuk melamar ratusan posisi sekaligus membuat HR semakin ketat dan selektif. Rekruter kini lebih curiga terhadap lamaran yang terlalu sempurna secara format tapi minim personalisasi.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num coral">3</span>
+          <div>
+            <strong>Pengalaman Tidak Relevan atau Tidak Terkomunikasikan</strong>
+            <p>Bukan selalu soal kurang pengalaman — seringkali soal gagal mengkomunikasikan pencapaian yang relevan. Rekruter tidak akan menggali lebih dalam jika halaman pertama CV tidak meyakinkan.</p>
+          </div>
+        </li>
+      </ul>
+
+      <!-- ── BAGIAN 5: Tips ── -->
+      <p class="section-label">Yang Bisa Anda Lakukan</p>
+
+      <h2>5 Cara Meningkatkan Peluang CV Anda Dilirik di 2026</h2>
+
+      <div class="tips-grid">
+        <div class="tip-card">
+          <h4>Gunakan Format ATS-Friendly</h4>
+          <p>Format satu kolom, PDF atau Word, tanpa tabel kompleks atau grafik. Gunakan heading standar: Pengalaman, Pendidikan, Keahlian.</p>
+        </div>
+        <div class="tip-card">
+          <h4>Tailor CV untuk Setiap Posisi</h4>
+          <p>Sesuaikan ringkasan profil dan kata kunci pengalaman dengan deskripsi pekerjaan. Pelamar yang menyesuaikan CV punya peluang 10–20× lebih besar dipanggil wawancara.</p>
+        </div>
+        <div class="tip-card">
+          <h4>Tampilkan Pencapaian Terukur</h4>
+          <p>Ganti daftar tugas dengan pencapaian konkret: "Meningkatkan match rate kandidat 15%" jauh lebih kuat dari "Melakukan proses rekrutmen".</p>
+        </div>
+        <div class="tip-card">
+          <h4>Optimalkan 1/3 Bagian Atas CV</h4>
+          <p>Ringkasan profil dan pengalaman terakhir adalah area yang paling sering dibaca. Pastikan relevansi dan dampak terkuat ada di sini.</p>
+        </div>
+        <div class="tip-card">
+          <h4>Bangun Jalur Selain Cold Apply</h4>
+          <p>Referensi internal, LinkedIn outreach ke hiring manager, atau koneksi komunitas industri secara signifikan meningkatkan peluang di luar sistem ATS.</p>
+        </div>
+      </div>
+
+      <!-- ── CTA ── -->
+      <div class="article-cta">
+        <h2>Mau CV Anda Dilirik Rekruter?</h2>
+        <p>
+          Saya bisa membantu memeriksa apakah CV Anda sudah ATS-friendly, relevan dengan posisi target, dan cukup kuat untuk melewati <em>first pass</em> rekruter. Review dilakukan berdasarkan perspektif rekruter aktif — bukan template umum.
+        </p>
+        <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:22px;">
+          <a class="button primary" href="form-review-cv.html">Review CV Saya</a>
+          <a class="button secondary" href="https://wa.me/6282158344302?text=Halo%20Faizal%2C%20saya%20ingin%20diskusi%20tentang%20CV%20saya." target="_blank" rel="noopener" style="border-color:rgba(255,255,255,0.45); color:#fff;">Diskusi via WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- ── SOURCES ── -->
+      <div class="sources">
+        <p><strong>Sumber Data:</strong></p>
+        <p>HiringThing (2025). <em>2025 Job Application Statistics.</em> · LinkedIn Pulse — Behbahani (2024). <em>The 30-Second Rule: Why Tailoring Your Resume Matters.</em> · CoverSentry (2025). <em>ATS Statistics.</em> · ResumeAdapter (2026). <em>Resume Trends 2026.</em> · CNBC Indonesia (Maret 2026). <em>Cari Kerja Makin Susah.</em> · ResumeGenius (2025). <em>Hiring Insights Report.</em> · Kompas Lestari (Februari 2026). <em>81 Persen Perusahaan di Indonesia Sulit Dapat Kandidat.</em> · Talentics.id (2025). <em>4 Data Statistik HR dalam Proses Rekrutmen.</em></p>
+        <p style="margin-top:10px; font-size:0.78rem;">Data di atas merupakan agregasi dari berbagai sumber riset global dan lokal. Angka spesifik dapat bervariasi berdasarkan industri, ukuran perusahaan, dan lokasi.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div>
+      <p class="eyebrow">Mari terhubung</p>
+      <h2>Diskusi HR, recruitment, training, atau kolaborasi konten.</h2>
+    </div>
+    <address>
+      <a href="mailto:faizalkadri01@gmail.com">faizalkadri01@gmail.com</a>
+      <a href="tel:+6282158344302">0821 5834 4302</a>
+      <a href="https://www.linkedin.com/in/faizal-kadri-985750173">LinkedIn Faizal Kadri</a>
+      <span>Senen, Jakarta Pusat</span>
+    </address>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
