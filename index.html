@@ -142,13 +142,41 @@
     </section>
 
     <section class="section insight" id="insight">
-      <div class="section-heading">
-        <p class="eyebrow">Insight Hub</p>
-        <h2>Bacaan praktis untuk keputusan karier dan hiring.</h2>
-        <p>Konten dirancang untuk praktisi HR, recruiter, hiring manager, dan fresh graduate yang ingin memahami dunia rekrutmen dari sisi yang lebih praktis.</p>
+      <div class="insight-header">
+        <div class="section-heading">
+          <p class="eyebrow">Insight Hub</p>
+          <h2>Bacaan praktis untuk keputusan karier dan hiring.</h2>
+          <p>Konten dirancang untuk praktisi HR, recruiter, hiring manager, dan fresh graduate yang ingin memahami dunia rekrutmen dari sisi yang lebih praktis.</p>
+        </div>
+        <div class="insight-controls">
+          <button class="carousel-btn" id="prevBtn" aria-label="Sebelumnya">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="carousel-btn" id="nextBtn" aria-label="Berikutnya">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <a class="btn-lihat-semua" href="semua-artikel.html" aria-label="Lihat semua artikel">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1" y="1" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="11" y="1" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="1" y="11" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="11" y="11" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/></svg>
+            Lihat Semua
+          </a>
+        </div>
       </div>
-      <div class="container">
-        <div class="article-grid">
+
+      <!-- Carousel track -->
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="carouselTrack">
+
+          <!-- Artikel terbaru ditampilkan pertama -->
+          <article class="article-card">
+            <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=900&q=80" alt="Tumpukan dokumen lamaran kerja di meja HR">
+            <div>
+              <span>Recruitment</span>
+              <h3>Ternyata Hanya Kurang dari 10% Lamaran yang Diproses HR</h3>
+              <p>Insight tentang mengapa banyak lamaran tidak diproses dan bagaimana pelamar bisa meningkatkan peluangnya.</p>
+              <a href="artikel-peluang-lamaran-hr.html">Baca Artikel</a>
+            </div>
+          </article>
+
           <article class="article-card">
             <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80" alt="Diskusi tim dalam sesi kerja">
             <div>
@@ -158,6 +186,7 @@
               <a href="artikel-interview-bei-cbi.html">Baca Artikel</a>
             </div>
           </article>
+
           <article class="article-card">
             <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=900&q=80" alt="Profesional berdiskusi di meja kerja">
             <div>
@@ -167,6 +196,7 @@
               <a href="artikel-kesalahan-cv.html">Baca Artikel</a>
             </div>
           </article>
+
           <article class="article-card">
             <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=80" alt="Sesi presentasi dan training karyawan">
             <div>
@@ -176,16 +206,12 @@
               <a href="artikel-persiapan-interview.html">Baca Artikel</a>
             </div>
           </article>
-          <article class="article-card">
-            <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=900&q=80" alt="Tumpukan dokumen lamaran kerja di meja HR">
-            <div>
-             <span>Recruitment</span>
-             <h3>Ternyata Hanya Kurang dari 10% Lamaran yang Diproses HR</h3>
-             <p>Insight tentang mengapa banyak lamaran tidak diproses dan bagaimana pelamar bisa meningkatkan peluangnya.</p>
-             <a href="artikel-peluang-lamaran-hr.html">Baca Artikel</a>
-            </div>
-          </article>
+
+        </div>
       </div>
+
+      <!-- Dot indicators -->
+      <div class="carousel-dots" id="carouselDots" aria-label="Navigasi slide"></div>
     </section>
 
     <section class="section expertise" id="expertise">
