@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semua Artikel | Faizal Kadri</title>
+  <meta name="description" content="Kumpulan artikel praktis seputar CV, interview, recruitment, dan karier dari Faizal Kadri.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Filter pills ── */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+
+    .filter-pill {
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1.5px solid var(--line);
+      background: var(--white);
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+    }
+
+    .filter-pill:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+
+    .filter-pill.active {
+      background: var(--forest);
+      border-color: var(--forest);
+      color: var(--white);
+    }
+
+    /* ── Articles grid ── */
+    .all-articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    /* Hide filtered-out cards */
+    .article-card[data-hidden="true"] {
+      display: none;
+    }
+
+    /* ── Empty state ── */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 24px;
+      color: var(--muted);
+      display: none;
+    }
+
+    .empty-state p {
+      font-size: 1rem;
+    }
+
+    /* ── Page hero ── */
+    .articles-hero {
+      padding: 132px clamp(18px, 6vw, 84px) 56px;
+      background: linear-gradient(135deg, var(--forest) 0%, var(--teal) 100%);
+      color: var(--white);
+    }
+
+    .articles-hero .eyebrow {
+      color: var(--gold);
+    }
+
+    .articles-hero h1 {
+      color: var(--white);
+      font-size: clamp(2.4rem, 5vw, 4.5rem);
+      margin-bottom: 14px;
+    }
+
+    .articles-hero p {
+      color: rgba(255,255,255,0.82);
+      font-size: clamp(1rem, 1.6vw, 1.18rem);
+      line-height: 1.75;
+      max-width: 640px;
+      margin: 0;
+    }
+
+    /* ── Content area ── */
+    .articles-body {
+      padding: 56px clamp(18px, 6vw, 84px) 80px;
+      background: linear-gradient(180deg, #fffdf7 0%, #eef3e9 100%);
+      min-height: 60vh;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 980px) {
+      .all-articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 680px) {
+      .articles-hero {
+        padding-top: 96px;
+      }
+      .all-articles-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Faizal Kadri home">
+      <span class="brand-mark">FK</span>
+      <span>Faizal Kadri</span>
+    </a>
+    <nav class="nav" aria-label="Navigasi utama">
+      <a href="index.html#services">Layanan</a>
+      <a href="semua-artikel.html" class="active">Insight</a>
+      <a href="index.html#expertise">Expertise</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <div class="articles-hero">
+    <a class="back-link" href="index.html#insight" style="color:rgba(255,255,255,0.7); margin-bottom:24px; display:inline-flex;">← Kembali ke Beranda</a>
+    <p class="eyebrow">Insight Hub</p>
+    <h1>Semua Artikel</h1>
+    <p>Kumpulan bacaan praktis seputar CV, interview, recruitment, dan strategi karier dari perspektif rekruter aktif.</p>
+  </div>
+
+  <!-- Body -->
+  <div class="articles-body">
+
+    <!-- Filter bar -->
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-pill active" data-filter="semua">Semua</button>
+      <button class="filter-pill" data-filter="recruitment">Recruitment</button>
+      <button class="filter-pill" data-filter="cv-karier">CV & Karier</button>
+      <button class="filter-pill" data-filter="interview">Interview</button>
+    </div>
+
+    <!-- Grid -->
+    <div class="all-articles-grid" id="articlesGrid">
+
+      <!-- ① Terbaru -->
+      <article class="article-card" data-category="recruitment">
+        <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=900&q=80" alt="Tumpukan dokumen lamaran kerja di meja HR">
+        <div>
+          <span>Recruitment</span>
+          <h3>Ternyata Hanya Kurang dari 10% Lamaran yang Diproses HR</h3>
+          <p>Insight tentang mengapa banyak lamaran tidak diproses dan bagaimana pelamar bisa meningkatkan peluangnya.</p>
+          <a href="artikel-peluang-lamaran-hr.html">Baca Artikel</a>
+        </div>
+      </article>
+
+      <!-- ② -->
+      <article class="article-card" data-category="recruitment">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80" alt="Diskusi tim dalam sesi kerja">
+        <div>
+          <span>Recruitment</span>
+          <h3>Cara Menyusun Interview BEI dan CBI</h3>
+          <p>Framework pertanyaan, probing, dan indikator jawaban untuk membaca kompetensi kandidat dengan lebih konsisten.</p>
+          <a href="artikel-interview-bei-cbi.html">Baca Artikel</a>
+        </div>
+      </article>
+
+      <!-- ③ -->
+      <article class="article-card" data-category="cv-karier">
+        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=900&q=80" alt="Profesional berdiskusi di meja kerja">
+        <div>
+          <span>CV & Karier</span>
+          <h3>10 Kesalahan Pelamar dalam Membuat CV</h3>
+          <p>Kesalahan kecil yang sering membuat CV kurang terbaca, kurang relevan, atau tidak cukup kuat di mata recruiter.</p>
+          <a href="artikel-kesalahan-cv.html">Baca Artikel</a>
+        </div>
+      </article>
+
+      <!-- ④ -->
+      <article class="article-card" data-category="interview">
+        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=80" alt="Sesi presentasi dan training karyawan">
+        <div>
+          <span>Interview</span>
+          <h3>Hal yang Perlu Dilakukan Sebelum Interview Kerja</h3>
+          <p>Persiapan sederhana sebelum interview agar jawaban lebih terarah, percaya diri, dan sesuai kebutuhan posisi.</p>
+          <a href="artikel-persiapan-interview.html">Baca Artikel</a>
+        </div>
+      </article>
+
+      <!-- Empty state -->
+      <div class="empty-state" id="emptyState">
+        <p>Belum ada artikel di kategori ini. Segera hadir.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer" id="contact">
+    <div class="footer-brand">
+      <a class="brand" href="index.html" aria-label="Faizal Kadri home">
+        <span class="brand-mark">FK</span>
+        <span>Faizal Kadri</span>
+      </a>
+      <p>Human Capital, Recruitment, Training, dan insight karier untuk pencari kerja, HR, rekruter, serta perusahaan.</p>
+    </div>
+    <div class="footer-column">
+      <h3>Contact Info</h3>
+      <a href="mailto:faizalkadri01@gmail.com">faizalkadri01@gmail.com</a>
+      <a href="tel:+6282158344302">(+62) 821 5834 4302</a>
+    </div>
+    <div class="footer-column">
+      <h3>Location</h3>
+      <address>
+        ABC Express, Ruko Mega Grosir Cempaka Mas, Blk. D1 Jl. Letjend Suprapto No.9 10, RW.8, Sumur Batu, Kec. Kemayoran, Kota Jakarta Pusat.
+      </address>
+    </div>
+    <div class="footer-column">
+      <h3>Follow Us</h3>
+      <div class="social-links">
+        <a href="https://www.instagram.com/faizallkadri/" aria-label="Instagram Faizal Kadri">IG</a>
+        <a href="https://www.linkedin.com/in/faizal-kadri-985750173" aria-label="LinkedIn Faizal Kadri">in</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    /* ── Category filter ── */
+    const filterBar  = document.getElementById("filterBar");
+    const grid       = document.getElementById("articlesGrid");
+    const emptyState = document.getElementById("emptyState");
+
+    filterBar.addEventListener("click", e => {
+      const pill = e.target.closest(".filter-pill");
+      if (!pill) return;
+
+      /* Update active pill */
+      filterBar.querySelectorAll(".filter-pill").forEach(p => p.classList.remove("active"));
+      pill.classList.add("active");
+
+      const filter = pill.dataset.filter;
+      const cards  = grid.querySelectorAll(".article-card");
+      let visible  = 0;
+
+      cards.forEach(card => {
+        const match = filter === "semua" || card.dataset.category === filter;
+        card.setAttribute("data-hidden", match ? "false" : "true");
+        if (match) visible++;
+      });
+
+      emptyState.style.display = visible === 0 ? "block" : "none";
+    });
+  </script>
+</body>
+</html>
