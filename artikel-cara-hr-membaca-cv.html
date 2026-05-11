@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cara HR Membaca CV dalam 30 Detik | Faizal Kadri</title>
+  <meta name="description" content="Panduan insider tentang bagaimana recruiter memindai CV dalam 30 detik pertama dan bagian mana yang paling menentukan nasib lamaranmu.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+
+    /* ── Eye-tracking heatmap visual ── */
+    .cv-heatmap {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 40px 0;
+      align-items: start;
+    }
+
+    .cv-mock {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 28px 24px;
+      box-shadow: 0 16px 48px rgba(23,33,31,0.14);
+      border: 1px solid var(--line);
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+
+    .cv-mock-zone {
+      position: relative;
+      padding: 10px 12px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      transition: background 0.2s;
+    }
+
+    .cv-mock-zone.hot-1 {
+      background: rgba(207, 111, 79, 0.22);
+      border-left: 4px solid var(--coral);
+    }
+
+    .cv-mock-zone.hot-2 {
+      background: rgba(200, 145, 61, 0.18);
+      border-left: 4px solid var(--gold);
+    }
+
+    .cv-mock-zone.warm {
+      background: rgba(47, 124, 119, 0.10);
+      border-left: 4px solid var(--teal);
+    }
+
+    .cv-mock-zone.cold {
+      background: rgba(215, 221, 212, 0.25);
+      border-left: 4px solid var(--line);
+    }
+
+    .cv-mock-zone .zone-label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+    }
+
+    .cv-mock-zone.hot-1 .zone-label { color: var(--coral); }
+    .cv-mock-zone.hot-2 .zone-label { color: var(--gold); }
+    .cv-mock-zone.warm .zone-label { color: var(--teal); }
+
+    .cv-mock-name {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--forest);
+      margin-bottom: 3px;
+    }
+
+    .cv-mock-role {
+      font-size: 0.78rem;
+      color: var(--teal);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .cv-mock-contact {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .cv-mock-summary-text {
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .cv-mock-exp-title {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    .cv-mock-exp-sub {
+      font-size: 0.72rem;
+      color: var(--teal);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .cv-mock-exp-bullets {
+      font-size: 0.71rem;
+      color: var(--muted);
+      padding-left: 12px;
+      line-height: 1.65;
+    }
+
+    .cv-mock-skill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .cv-mock-skill-tag {
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: var(--mint);
+      color: var(--forest);
+      font-size: 0.68rem;
+      font-weight: 700;
+    }
+
+    .cv-mock-edu-title {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .cv-mock-edu-sub {
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    /* Legend */
+    .heatmap-legend {
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 18px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      box-shadow: 0 6px 18px rgba(23,33,31,0.06);
+    }
+
+    .legend-dot {
+      flex-shrink: 0;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      margin-top: 4px;
+    }
+
+    .legend-dot.c { background: var(--coral); }
+    .legend-dot.g { background: var(--gold); }
+    .legend-dot.t { background: var(--teal); }
+    .legend-dot.l { background: var(--line); }
+
+    .legend-item strong {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+
+    .legend-item p {
+      margin: 0 !important;
+      font-size: 0.82rem !important;
+      color: var(--muted) !important;
+      line-height: 1.55 !important;
+    }
+
+    /* ── Timeline 30 detik ── */
+    .scan-timeline {
+      display: grid;
+      gap: 0;
+      margin: 32px 0;
+      position: relative;
+    }
+
+    .scan-timeline::before {
+      content: "";
+      position: absolute;
+      left: 35px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--coral), var(--gold), var(--teal), var(--line));
+    }
+
+    .scan-step {
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+      padding-bottom: 28px;
+    }
+
+    .scan-step-num {
+      flex-shrink: 0;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: 800;
+      font-size: 0.95rem;
+      line-height: 1.15;
+      z-index: 1;
+      border: 4px solid var(--paper);
+      padding: 6px;
+      box-sizing: border-box;
+    }
+
+    .scan-step-num.s1 { background: var(--coral); color: #fff; }
+    .scan-step-num.s2 { background: var(--gold); color: #1c1710; }
+    .scan-step-num.s3 { background: var(--teal); color: #fff; }
+    .scan-step-num.s4 { background: var(--forest); color: #fff; }
+
+    .scan-step-body {
+      flex: 1;
+      padding: 16px 20px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      box-shadow: 0 6px 18px rgba(23,33,31,0.06);
+      margin-top: 8px;
+    }
+
+    .scan-step-body .time-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      background: var(--mint);
+      color: var(--forest);
+    }
+
+    .scan-step-body strong {
+      display: block;
+      font-size: 0.97rem;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .scan-step-body p {
+      margin: 0 !important;
+      font-size: 0.88rem !important;
+      color: var(--muted) !important;
+      line-height: 1.65 !important;
+    }
+
+    /* ── Do/Don't cards ── */
+    .do-dont-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 28px 0;
+    }
+
+    .do-card, .dont-card {
+      padding: 22px 20px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+    }
+
+    .do-card {
+      background: #f0faf4;
+      border-top: 5px solid #3aab6e;
+    }
+
+    .dont-card {
+      background: #fff4f1;
+      border-top: 5px solid var(--coral);
+    }
+
+    .do-card h4 {
+      color: #1d6b40;
+      margin-bottom: 14px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .dont-card h4 {
+      color: var(--coral);
+      margin-bottom: 14px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .do-card ul, .dont-card ul {
+      margin: 0;
+      padding-left: 16px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .do-card li, .dont-card li {
+      font-size: 0.9rem !important;
+      line-height: 1.6 !important;
+      color: var(--ink) !important;
+    }
+
+    /* ── Pull stat ── */
+    .stat-inline {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 24px 28px;
+      border-radius: 10px;
+      background: var(--forest);
+      color: var(--white);
+      margin: 32px 0;
+    }
+
+    .stat-inline strong {
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .stat-inline p {
+      margin: 0 !important;
+      color: rgba(255,255,255,0.88) !important;
+      font-size: 1rem !important;
+      line-height: 1.65 !important;
+    }
+
+    /* ── Recruiter inner voice callout ── */
+    .recruiter-voice {
+      margin: 36px 0;
+      padding: 26px 30px;
+      border-left: 6px solid var(--coral);
+      border-radius: 0 10px 10px 0;
+      background: var(--rose);
+      font-size: 1.04rem;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.75;
+    }
+
+    .recruiter-voice cite {
+      display: block;
+      margin-top: 12px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      font-style: normal;
+      color: var(--coral);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Section label ── */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 44px 0 20px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: var(--mint);
+      color: var(--forest);
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .section-label::before {
+      content: "";
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    /* ── Checklist ── */
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0 32px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 18px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      font-size: 0.95rem !important;
+      color: var(--ink) !important;
+      line-height: 1.6 !important;
+    }
+
+    .checklist li::before {
+      content: "✓";
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--mint);
+      color: var(--forest);
+      font-weight: 800;
+      font-size: 0.78rem;
+      display: grid;
+      place-items: center;
+      margin-top: 1px;
+    }
+
+    /* ── Hero banner ── */
+    .article-hero-banner {
+      position: relative;
+      width: 100%;
+      margin: 34px 0 42px;
+      aspect-ratio: 1.9;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .article-hero-banner img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .article-hero-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(21,48,43,0.80) 0%, rgba(21,48,43,0.18) 55%, transparent);
+    }
+
+    .article-hero-banner .banner-caption {
+      position: relative;
+      z-index: 2;
+      padding: 28px 32px;
+      color: var(--white);
+    }
+
+    .article-hero-banner .banner-caption strong {
+      display: block;
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+
+    .article-hero-banner .banner-caption span {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.75);
+      font-weight: 600;
+    }
+
+    @media (max-width: 680px) {
+      .cv-heatmap { grid-template-columns: 1fr; }
+      .do-dont-grid { grid-template-columns: 1fr; }
+      .stat-inline { flex-direction: column; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Kembali ke halaman utama">
+      <span class="brand-mark">FK</span>
+      <span>Faizal Kadri</span>
+    </a>
+    <nav class="nav" aria-label="Navigasi artikel">
+      <a href="index.html#services">Layanan</a>
+      <a href="index.html#insight">Insight</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="article-page">
+    <article class="article-detail">
+      <a class="back-link" href="index.html#insight">← Kembali ke Insight</a>
+
+      <span style="display:inline-block; margin-bottom:12px; padding:6px 14px; border-radius:999px; background:var(--mint); color:var(--forest); font-size:0.78rem; font-weight:800; text-transform:uppercase; letter-spacing:0.04em;">CV & Rekrutmen · Insider View</span>
+
+      <h1>Cara HR Membaca CV dalam 30 Detik</h1>
+      <p class="article-lead">Kebanyakan CV tidak gagal karena kandidatnya tidak kompeten. Mereka gagal karena informasi yang paling penting tidak langsung terlihat. Ini panduan dari sisi recruiter — bagaimana mata kami bergerak, apa yang kami cari, dan apa yang membuat kami berhenti membaca.</p>
+
+      <div class="article-hero-banner">
+        <img src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?auto=format&fit=crop&w=1400&q=80" alt="Recruiter sedang memindai dokumen CV di meja kerja">
+        <div class="banner-caption">
+          <strong>30 detik pertama menentukan segalanya</strong>
+          <span>Bagaimana rekruter memindai CV — bukan membacanya</span>
+        </div>
+      </div>
+
+      <!-- BAGIAN 1 -->
+      <p class="section-label">Realita di Meja Rekruter</p>
+
+      <h2>Rekruter Tidak Membaca CV — Mereka Memindainya</h2>
+
+      <p>Ini hal pertama yang perlu dipahami: rekruter yang menerima 50–200 CV dalam satu sesi tidak membaca setiap CV dari atas ke bawah. Mereka melakukan <em>visual scan</em> — mata bergerak cepat mencari pola, kata kunci, dan struktur.</p>
+
+      <p>Riset eye-tracking dari The Ladders menunjukkan rekruter rata-rata hanya menghabiskan 7,4 detik untuk <em>first pass</em> sebelum memutuskan apakah CV masuk tumpukan "lanjut" atau "abaikan". Di lingkungan kerja yang lebih realistis, angka ini bisa menjadi 30–60 detik untuk CV yang lolos filter pertama.</p>
+
+      <div class="stat-inline">
+        <strong>76%</strong>
+        <p>Rekruter menghabiskan kurang dari 60 detik untuk keputusan pertama. Artinya, CV kamu harus menjawab pertanyaan rekruter <em>sebelum</em> mereka sempat bertanya.</p>
+      </div>
+
+      <div class="recruiter-voice">
+        "Ketika saya membuka CV, saya langsung tanya dalam hati: siapa orang ini, apa yang mereka bisa, dan apakah relevan dengan posisi yang saya isi? Kalau tiga hal itu tidak terjawab di bagian atas, saya lanjut ke CV berikutnya."
+        <cite>— Perspektif Rekruter Aktif</cite>
+      </div>
+
+      <!-- BAGIAN 2: Urutan Scan -->
+      <p class="section-label">Peta Mata Rekruter</p>
+
+      <h2>Bagian Mana yang Dilihat Pertama?</h2>
+
+      <p>Mata rekruter tidak bergerak secara acak. Ada pola yang cukup konsisten — dimulai dari bagian atas kiri, lalu bergerak menyapu ke kanan dan turun. Berikut zona-zona yang paling menentukan:</p>
+
+      <div class="cv-heatmap">
+        <div class="cv-mock">
+          <div class="cv-mock-zone hot-1">
+            <span class="zone-label">Zona 1 — Paling Panas</span>
+            <div class="cv-mock-name">Nama Lengkap</div>
+            <div class="cv-mock-role">Target Posisi / Bidang</div>
+            <div class="cv-mock-contact">email@aktif.com · 0812-xxxx · LinkedIn · Jakarta</div>
+          </div>
+          <div class="cv-mock-zone hot-2">
+            <span class="zone-label">Zona 2 — Sangat Penting</span>
+            <div style="font-size:0.72rem; font-weight:800; color:var(--ink); margin-bottom:5px;">Ringkasan Profil</div>
+            <div class="cv-mock-summary-text">Fresh graduate Psikologi dengan pengalaman administrasi asesmen dan rekrutmen. Terbiasa mengelola data kandidat, melakukan screening awal, dan berkoordinasi dengan tim user untuk proses hiring.</div>
+          </div>
+          <div class="cv-mock-zone hot-2" style="margin-top:8px;">
+            <span class="zone-label">Zona 2 — Sangat Penting</span>
+            <div class="cv-mock-exp-title">HR Recruitment Assistant · PT Contoh Jaya</div>
+            <div class="cv-mock-exp-sub">Jan 2023 – Des 2023 · Jakarta</div>
+            <ul class="cv-mock-exp-bullets">
+              <li>Melakukan screening 80+ CV per minggu dan koordinasi jadwal interview</li>
+              <li>Membantu onboarding 15 karyawan baru selama Q3–Q4</li>
+            </ul>
+          </div>
+          <div class="cv-mock-zone warm" style="margin-top:8px;">
+            <span class="zone-label">Zona 3 — Dilirik</span>
+            <div style="font-size:0.72rem; font-weight:800; color:var(--ink); margin-bottom:5px;">Keahlian Utama</div>
+            <div class="cv-mock-skill-row">
+              <span class="cv-mock-skill-tag">Recruitment</span>
+              <span class="cv-mock-skill-tag">Microsoft Excel</span>
+              <span class="cv-mock-skill-tag">Interview</span>
+              <span class="cv-mock-skill-tag">Data HR</span>
+            </div>
+          </div>
+          <div class="cv-mock-zone cold" style="margin-top:8px;">
+            <span class="zone-label">Zona 4 — Jika Masih Tertarik</span>
+            <div class="cv-mock-edu-title">S1 Psikologi · Universitas Contoh</div>
+            <div class="cv-mock-edu-sub">Lulus 2022 · IPK 3.6</div>
+          </div>
+        </div>
+
+        <div class="heatmap-legend">
+          <div class="legend-item">
+            <span class="legend-dot c"></span>
+            <div>
+              <strong>Zona 1 — Header (0–5 detik)</strong>
+              <p>Nama, posisi yang dituju, dan kontak. Rekruter ingin tahu siapa kamu dan bisa dihubungi lewat mana. Jika tidak ada posisi/target yang jelas, CV terasa "mengambang".</p>
+            </div>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot g"></span>
+            <div>
+              <strong>Zona 2 — Ringkasan & Pengalaman Terakhir (5–20 detik)</strong>
+              <p>Area paling menentukan. Ringkasan profil menjawab "siapa kamu", pengalaman terakhir menjawab "apa yang kamu bisa". Relevansi dan pencapaian di sini = tiket ke tahap selanjutnya.</p>
+            </div>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot t"></span>
+            <div>
+              <strong>Zona 3 — Keahlian (20–25 detik)</strong>
+              <p>Rekruter memindai skill list untuk konfirmasi teknis. Jika kata kunci yang dicari ada di sini, skor kandidat naik. Jika terlalu umum atau tidak relevan, bagian ini tidak membantu.</p>
+            </div>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot l"></span>
+            <div>
+              <strong>Zona 4 — Pendidikan & Sisa (25–30 detik)</strong>
+              <p>Baru dilihat jika rekruter sudah tertarik. Untuk posisi tertentu (fresh graduate, akademik, legal), pendidikan lebih penting. Untuk posisi berpengalaman, ini konfirmasi saja.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BAGIAN 3: Timeline -->
+      <p class="section-label">Detik Per Detik</p>
+
+      <h2>Apa yang Terjadi dalam 30 Detik Itu?</h2>
+
+      <p>Ini bukan metafora. Ini adalah urutan keputusan nyata yang terjadi di kepala rekruter setiap kali membuka CV baru:</p>
+
+      <div class="scan-timeline">
+        <div class="scan-step">
+          <div class="scan-step-num s1">0–5 dtk</div>
+          <div class="scan-step-body">
+            <span class="time-badge">First Impression</span>
+            <strong>Apakah CV ini terlihat rapi dan mudah dibaca?</strong>
+            <p>Format, ukuran font, kepadatan teks, dan tata letak langsung dinilai. CV yang terlalu padat, terlalu berwarna, atau tidak terstruktur sudah kehilangan poin sebelum satu kata pun dibaca.</p>
+          </div>
+        </div>
+        <div class="scan-step">
+          <div class="scan-step-num s2">5–12 dtk</div>
+          <div class="scan-step-body">
+            <span class="time-badge">Identitas & Relevansi</span>
+            <strong>Siapa ini dan apakah relevan dengan posisi yang kami cari?</strong>
+            <p>Rekruter membaca nama, posisi yang dituju (jika ada), dan ringkasan profil. Di sinilah keputusan "lanjut atau tidak" paling sering dibuat. Ringkasan profil yang generik = merah.</p>
+          </div>
+        </div>
+        <div class="scan-step">
+          <div class="scan-step-num s3">12–22 dtk</div>
+          <div class="scan-step-body">
+            <span class="time-badge">Pengalaman Terakhir</span>
+            <strong>Apa yang pernah mereka lakukan dan seberapa relevan?</strong>
+            <p>Rekruter memindai nama perusahaan, posisi, dan poin-poin pengalaman terbaru. Angka dan pencapaian konkret langsung menarik perhatian. Daftar tugas generik tidak.</p>
+          </div>
+        </div>
+        <div class="scan-step">
+          <div class="scan-step-num s4">22–30 dtk</div>
+          <div class="scan-step-body">
+            <span class="time-badge">Konfirmasi & Keputusan</span>
+            <strong>Cukup meyakinkan untuk dipanggil interview?</strong>
+            <p>Rekruter memindai skill, pendidikan, dan detail lain untuk konfirmasi. Jika kesan sebelumnya sudah positif, ini memperkuat. Jika belum, sangat jarang ada yang berubah di tahap ini.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- BAGIAN 4: Apa yang Bikin Berhenti -->
+      <p class="section-label">Sinyal yang Ditangkap Rekruter</p>
+
+      <h2>Yang Membuat Rekruter Berhenti — Positif dan Negatif</h2>
+
+      <p>Ada elemen tertentu yang secara konsisten menarik atau mengusir perhatian rekruter. Bukan soal desain yang mewah, tapi soal kejelasan dan relevansi.</p>
+
+      <div class="do-dont-grid">
+        <div class="do-card">
+          <h4>✓ Yang Menarik Perhatian</h4>
+          <ul>
+            <li>Ringkasan profil 3–4 kalimat yang langsung menunjukkan keahlian dan posisi target</li>
+            <li>Pengalaman dengan angka nyata: "screening 80+ CV", "onboarding 15 karyawan"</li>
+            <li>Nama posisi yang jelas di bagian atas CV</li>
+            <li>Kata kunci yang sesuai dengan job description</li>
+            <li>Whitespace yang cukup — CV tidak terasa sesak</li>
+            <li>Poin pengalaman yang dimulai dengan kata kerja aktif</li>
+          </ul>
+        </div>
+        <div class="dont-card">
+          <h4>✗ Yang Langsung Menurunkan Skor</h4>
+          <ul>
+            <li>Ringkasan profil berisi "pekerja keras, jujur, dan mampu bekerja dalam tim"</li>
+            <li>Pengalaman hanya berisi deskripsi tugas tanpa dampak atau hasil</li>
+            <li>Foto, grafik skill bar, atau ikon yang memakan space tanpa nilai informasi</li>
+            <li>Typo di nama posisi atau nama perusahaan</li>
+            <li>CV 3+ halaman dengan informasi yang tidak relevan posisi</li>
+            <li>Kontak yang tersembunyi atau tidak ada sama sekali</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- BAGIAN 5: Mindset -->
+      <p class="section-label">Yang Perlu Diubah</p>
+
+      <h2>CV Bukan Riwayat Hidup — CV Adalah Argumen</h2>
+
+      <p>Kesalahan terbesar yang sering saya temui adalah kandidat yang memperlakukan CV sebagai dokumen biografi: semua hal dicantumkan secara kronologis tanpa filter. Padahal, fungsi CV yang efektif bukan "menceritakan siapa saya" tapi "meyakinkan recruiter bahwa saya adalah kandidat yang tepat untuk posisi ini."</p>
+
+      <p>Setiap elemen di CV seharusnya menjawab satu pertanyaan: <strong>apakah ini membantu saya terlihat relevan dan kompeten untuk posisi yang saya lamar?</strong> Jika tidak, itu kandidat untuk dipangkas atau direvisi.</p>
+
+      <div class="recruiter-voice">
+        "Yang paling saya ingat dari kandidat bukan CV yang paling cantik. Yang paling saya ingat adalah kandidat yang CV-nya membuat saya langsung paham: orang ini tahu posisi ini butuh apa, dan mereka punya pengalaman yang nyambung."
+        <cite>— Perspektif Rekruter Aktif</cite>
+      </div>
+
+      <!-- BAGIAN 6: Checklist -->
+      <p class="section-label">Langkah Konkret</p>
+
+      <h2>Checklist: Apakah CV Kamu Siap Melewati 30 Detik?</h2>
+
+      <ul class="checklist">
+        <li>Header sudah berisi nama, posisi/target karier, email aktif, dan nomor WhatsApp</li>
+        <li>Ringkasan profil menjawab tiga hal: latar belakang, keahlian utama, dan posisi yang dituju</li>
+        <li>Pengalaman terakhir paling relevan tampil di atas, bukan tersembunyi di bawah</li>
+        <li>Paling tidak ada satu angka atau pencapaian konkret di setiap posisi kerja</li>
+        <li>Skill list hanya berisi yang relevan dengan posisi yang dilamar</li>
+        <li>CV bisa dipindai dalam 30 detik tanpa harus membaca kata per kata</li>
+        <li>Tidak ada typo, format tanggal konsisten, dan bahasa seragam</li>
+        <li>CV sudah disesuaikan dengan deskripsi posisi yang dilamar — bukan versi generik</li>
+      </ul>
+
+      <!-- CTA -->
+      <div class="article-cta">
+        <h2>Ingin Tahu Apakah CV Kamu Lolos 30 Detik Pertama?</h2>
+        <p>Saya bisa memeriksa apakah CV kamu sudah terstruktur untuk melewati pemindaian rekruter — dari header, ringkasan profil, hingga cara pengalaman dikomunikasikan. Review dilakukan dari perspektif rekruter aktif, bukan checklist template.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:22px;">
+          <a class="button primary" href="form-review-cv.html">Review CV Saya</a>
+          <a class="button secondary" href="https://wa.me/6282158344302?text=Halo%20Faizal%2C%20saya%20ingin%20diskusi%20tentang%20CV%20saya." target="_blank" rel="noopener" style="border-color:rgba(255,255,255,0.45); color:#fff;">Diskusi via WhatsApp</a>
+        </div>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="footer-brand">
+      <a class="brand" href="index.html" aria-label="Faizal Kadri home">
+        <span class="brand-mark">FK</span>
+        <span>Faizal Kadri</span>
+      </a>
+      <p>Human Capital, Recruitment, Training, dan insight karier untuk pencari kerja, HR, rekruter, serta perusahaan.</p>
+    </div>
+    <div class="footer-column">
+      <h3>Contact Info</h3>
+      <a href="mailto:faizalkadri01@gmail.com">faizalkadri01@gmail.com</a>
+      <a href="tel:+6282158344302">(+62) 821 5834 4302</a>
+    </div>
+    <div class="footer-column">
+      <h3>Location</h3>
+      <address>
+        ABC Express, Ruko Mega Grosir Cempaka Mas, Blk. D1 Jl. Letjend Suprapto No.9 10, RW.8, Sumur Batu, Kec. Kemayoran, Kota Jakarta Pusat.
+      </address>
+    </div>
+    <div class="footer-column">
+      <h3>Follow Us</h3>
+      <div class="social-links">
+        <a href="https://www.instagram.com/faizallkadri/" aria-label="Instagram Faizal Kadri">IG</a>
+        <a href="https://www.linkedin.com/in/faizal-kadri-985750173" aria-label="LinkedIn Faizal Kadri">in</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
